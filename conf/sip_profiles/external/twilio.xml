@@ -1,0 +1,8 @@
+<include>
+  <gateway name="twilio">
+  <!--<param name="username" value="cluecon"/>-->
+  <!--<param name="password" value="2007"/>-->
+  <param name="proxy" value="tari.pstn.tokyo.twilio.com"/>
+  <param name="register" value="false"/>
+  </gateway>
+</include>

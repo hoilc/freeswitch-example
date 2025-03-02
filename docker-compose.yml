@@ -1,0 +1,18 @@
+services:
+  freeswitch:
+    container_name: freeswitch
+    image: registry.cn-shanghai.aliyuncs.com/tari/freeswitch:latest
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+    restart: unless-stopped
+    network_mode: "host"
+    volumes:
+    - ./conf/sip_profiles/external/twilio.xml:/usr/local/freeswitch/conf/sip_profiles/external/twilio.xml
+    - ./conf/dialplan/default/00_twilio.xml:/usr/local/freeswitch/conf/dialplan/default/00_twilio.xml
+    - ./conf/autoload_configs/acl.conf.xml:/usr/local/freeswitch/conf/autoload_configs/acl.conf.xml
+    - ./db:/usr/local/freeswitch/db
+    - ./log:/usr/local/freeswitch/log
+    - ./storage:/usr/local/freeswitch/storage
+    - ./recordings:/usr/local/freeswitch/recordings
+

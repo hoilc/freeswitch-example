@@ -1,0 +1,16 @@
+<include>
+    <extension name="public_did">
+        <condition field="destination_number" expression="^\+18887204383$">
+            <action application="set" data="domain_name=$${domain}"/>
+            <action application="playback" data="phrase:greeting"/>
+            <action application="transfer" data="1000 XML default"/>
+        </condition>
+    </extension>
+    <extension name="Call-Out">
+        <condition field="destination_number" expression="^(1\d{10})$" require-nested="false">
+            <action application="set" data="effective_caller_id_number=+18887204383"/>
+            <action application="set"data="effective_caller_id_name=${outbound_caller_id_name}"/>
+            <action application="bridge" data="sofia/gateway/twilio/+$1"/>
+        </condition>
+    </extension>
+</include>
