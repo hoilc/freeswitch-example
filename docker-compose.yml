@@ -11,6 +11,8 @@ services:
     - ./conf/sip_profiles/external/twilio.xml:/usr/local/freeswitch/conf/sip_profiles/external/twilio.xml
     - ./conf/dialplan/default/00_twilio.xml:/usr/local/freeswitch/conf/dialplan/default/00_twilio.xml
     - ./conf/autoload_configs/acl.conf.xml:/usr/local/freeswitch/conf/autoload_configs/acl.conf.xml
+    - ./conf/autoload_configs/modules.conf.xml:/usr/local/freeswitch/conf/autoload_configs/modules.conf.xml
+    - ./conf/autoload_configs/event_socket.conf.xml:/usr/local/freeswitch/conf/autoload_configs/event_socket.conf.xml
     - ./db:/usr/local/freeswitch/db
     - ./log:/usr/local/freeswitch/log
     - ./storage:/usr/local/freeswitch/storage
